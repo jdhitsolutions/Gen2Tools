@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<helpItems schema="maml">
+
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>New-Gen2Disk</command:name>
+<command:verb>New</command:verb>
+<command:noun>Gen2Disk</command:noun>
+<maml:description><maml:para>Create a Generation 2 VHDX
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>This command will create a generation 2 VHDX file. Many of the parameters are from the New-VHD cmdlet. The disk name must end in .vhdx. 
+</maml:para>
+<maml:para>The disk will be created with these partitions in this order:
+</maml:para>
+<maml:para>* 300MB Recovery Tools
+</maml:para>
+<maml:para>* 100MB System
+</maml:para>
+<maml:para>* 128MB MSR
+</maml:para>
+<maml:para>* Windows
+</maml:para>
+<maml:para>* 15GB Recovery Image
+</maml:para>
+<maml:para>
+</maml:para>
+<maml:para>The size of the windows partition will be whatever is left over give or take a few KB.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>New-Gen2Disk</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none"><maml:name>Path</maml:name>
+<maml:Description><maml:para>The path to the disk file.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Size</maml:name>
+<maml:Description><maml:para>The size of the new virtual disk in bytes.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">UInt64</command:parameterValue>
+<dev:type><maml:name>UInt64</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>26843545600</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Dynamic</maml:name>
+<maml:Description><maml:para>Indicate whether the disk should be configured as a dynamically expanding disk.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>BlockSizeBytes</maml:name>
+<maml:Description><maml:para>The block size of the new virtual disk in bytes.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">UInt32</command:parameterValue>
+<dev:type><maml:name>UInt32</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>2097152</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>LogicalSectorSizeBytes</maml:name>
+<maml:Description><maml:para>The logical sector size fo the new virtual disk in bytes.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">UInt32</command:parameterValue>
+<dev:type><maml:name>UInt32</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>512</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>PhysicalSectorSizeBytes</maml:name>
+<maml:Description><maml:para>The physical sector size of the new virtual disk in bytes.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">UInt32</command:parameterValue>
+<dev:type><maml:name>UInt32</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>512</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none"><maml:name>Path</maml:name>
+<maml:Description><maml:para>The path to the disk file.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Size</maml:name>
+<maml:Description><maml:para>The size of the new virtual disk in bytes.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">UInt64</command:parameterValue>
+<dev:type><maml:name>UInt64</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>26843545600</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Dynamic</maml:name>
+<maml:Description><maml:para>Indicate whether the disk should be configured as a dynamically expanding disk.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>BlockSizeBytes</maml:name>
+<maml:Description><maml:para>The block size of the new virtual disk in bytes.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">UInt32</command:parameterValue>
+<dev:type><maml:name>UInt32</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>2097152</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>LogicalSectorSizeBytes</maml:name>
+<maml:Description><maml:para>The logical sector size fo the new virtual disk in bytes.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">UInt32</command:parameterValue>
+<dev:type><maml:name>UInt32</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>512</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>PhysicalSectorSizeBytes</maml:name>
+<maml:Description><maml:para>The physical sector size of the new virtual disk in bytes.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">UInt32</command:parameterValue>
+<dev:type><maml:name>UInt32</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>512</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes></command:inputTypes>
+<command:returnValues></command:returnValues>
+<maml:alertSet><maml:alert><maml:para>Learn more about PowerShell: http://jdhitsolutions.com/blog/essential-powershell-resources/
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+<dev:code>PS C:\&gt; New-Gen2Disk d:\disks\disk001.vhdx -dynamic -size 50GB</dev:code>
+<dev:remarks><maml:para>
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Mount-DiskImage</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>New-Partition</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Get-DiskImage</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Get-Disk</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+</command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Set-Gen2Partition</command:name>
+<command:verb>Set</command:verb>
+<command:noun>Gen2Partition</command:noun>
+<maml:description><maml:para>Configure Windows image and recovery partitions
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>This command will update partitions for a Generate 2 VHDX file, configured for UEFI. It is assumed you used the New-Gen2Disk to create the VHDX file and that the partitions are in this order
+</maml:para>
+<maml:para>  
+1 = Recovery Tools   
+2 = System
+3 = Reserved (MSR)
+4 = Basic (Windows)
+5 = Recovery Image
+<maml:para/>
+You must supply the path to the VHDX file and a valid WIM. You should also include the index number for the Windows Edition to install. The WIM will be copied to the recovery partition.
+</maml:para>
+<maml:para>Optionally, you can also specify an XML file to be inserted into the OS partition as unattend.xml
+</maml:para>
+<maml:para>CAUTION: This command will reformat partitions.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Set-Gen2Partition</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="FullName, pspath"><maml:name>Path</maml:name>
+<maml:Description><maml:para>Enter the path to the VHDX file
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>none</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none"><maml:name>WIMPath</maml:name>
+<maml:Description><maml:para>Enter the path to the WIM file
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>none</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Index</maml:name>
+<maml:Description><maml:para>The image index from Get-WindowsImage.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+<dev:type><maml:name>Int32</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>1</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Unattend</maml:name>
+<maml:Description><maml:para>Specify the path to an unattend.xml file to insert.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="FullName, pspath"><maml:name>Path</maml:name>
+<maml:Description><maml:para>Enter the path to the VHDX file
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>none</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none"><maml:name>WIMPath</maml:name>
+<maml:Description><maml:para>Enter the path to the WIM file
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>none</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Index</maml:name>
+<maml:Description><maml:para>The image index from Get-WindowsImage.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+<dev:type><maml:name>Int32</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>1</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Unattend</maml:name>
+<maml:Description><maml:para>Specify the path to an unattend.xml file to insert.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes></command:inputTypes>
+<command:returnValues></command:returnValues>
+<maml:alertSet><maml:alert><maml:para>Learn more about PowerShell: http://jdhitsolutions.com/blog/essential-powershell-resources/
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+<dev:code>PS C:\&gt; Set-Gen2Partition -Path D:\vhd\demo3.vhdx -WIMPath D:\wim\Win2012R2-Install.wim -verbose
+
+VERBOSE: Processing D:\vhd\demo3.vhdx
+VERBOSE: 
+
+   Disk Number: 3
+
+PartitionNumber  DriveLetter Offset                               Size Type                         
+---------------  ----------- ------                               ---- ----                         
+1                            1048576                            300 MB Recovery                     
+2                            315621376                          100 MB System                       
+3                            420478976                          128 MB Reserved                     
+4                            554696704                        14.48 GB Basic                        
+5                            16107175936                         15 GB Recovery                     
+
+
+VERBOSE: Processing disknumber 3
+VERBOSE: Formatting Recovery Image
+VERBOSE: Assigning drive letter to Recovery Image partition
+VERBOSE: copying D:\wim\Win2012R2-Install.wim to G:\Recovery\install.wim
+VERBOSE: Formatting Windows partition
+VERBOSE: Assigning drive letter to Windows partition
+VERBOSE: Applying image from G:\Recovery\install.wim to H:\ using Index 1
+VERBOSE: Dism PowerShell Cmdlets Version 6.3.0.0
+
+LogPath : C:\windows\Logs\DISM\dism.log
+
+VERBOSE: Formatting Windows RE Tools partition
+VERBOSE: Assigning drive letter to Windows RE Tools partition
+VERBOSE: Creating Recovery\WindowsRE folder
+VERBOSE: Copying H:\Windows\System32\recovery\winre.wim to J:\Recovery\WindowsRE
+VERBOSE: Assigning drive letter to System partition
+VERBOSE: Running bcdboot-\&gt; H:\Windows /s K: /f UEFI
+VERBOSE: H:\Windows\System32\reagentc.exe /setosimage /path G:\Recovery /index 1 /target H:\Windows
+Directory set to: \\\\?\GLOBALROOT\device\harddisk3\partition5\Recovery
+
+H:\Windows\System32\reagentc.exe : REAGENTC.EXE: Operation Successful.
+At line:1 char:1
++ H:\Windows\System32\reagentc.exe /setosimage /path G:\Recovery /index 1 /target  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (REAGENTC.EXE: Operation Successful.:String) \[\], Remote 
+   Exception
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+    
+VERBOSE: 
+
+   Disk Number: 3
+
+PartitionNumber  DriveLetter Offset                               Size Type                         
+---------------  ----------- ------                               ---- ----                         
+1                J           1048576                            300 MB Recovery                     
+2                K           315621376                          100 MB System                       
+3                            420478976                          128 MB Reserved                     
+4                H           554696704                        14.48 GB Basic                        
+5                G           16107175936                         15 GB Recovery                     
+
+
+
+VERBOSE: Removing access paths
+VERBOSE: Dismounting D:\vhd\demo3.vhdx
+VERBOSE: Finished</dev:code>
+<dev:remarks><maml:para>
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+<dev:code>PS C:\&gt; Set-Gen2Partition -Path D:\vhd\test3.vhdx -WIMPath D:\wim\Win2012R2-Install.wim -Unattend C:\scripts\unattend.xml</dev:code>
+<dev:remarks><maml:para>
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Mount-DiskImage</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Get-Partition</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Format-Volume</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Get-WindowsImage</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Expand-WindowsImage</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+</command:relatedLinks>
+</command:command>
+</helpItems>

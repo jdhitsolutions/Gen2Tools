@@ -3,26 +3,6 @@
 #requires -RunAsAdministrator
 
 Function New-Gen2Disk {
-<#
-.SYNOPSIS
-Create a Generation 2 VHDX
-.DESCRIPTION
-This command will create a generation 2 VHDX file. Many of the parameters are
-from the New-VHD cmdlet. The disk name must end in .vhdx. 
-
-The disk will be created with these partitions in this order:
-
-300MB Recovery Tools
-100MB System 
-128MB MSR
-Windows
-15GB Recovery Image
-
-The size of the windows partition will be whatever is left over give or take a few KB.
-
-.EXAMPLE
-PS C:\> New-Gen2Disk d:\disks\disk001.vhdx -dynamic -size 50GB
-#>
 
 [cmdletbinding(SupportsShouldProcess)]
 Param(
@@ -105,7 +85,7 @@ if ($disk) {
 
     #clear the disk
     Write-Verbose "Clearing disk partitions to start all over"
-    get-disk -Number $disknumber | Get-Partition | Remove-Partition -Confirm:$false
+    Get-Disk -Number $disknumber | Get-Partition | Remove-Partition -Confirm:$false
 
     #create the RE Tools partition
     Write-Verbose "Creating a $RESize byte Recovery tools partition on disknumber $disknumber"
