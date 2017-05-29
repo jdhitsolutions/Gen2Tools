@@ -112,7 +112,7 @@ exit
      so formatting will be done with Diskpart
     #>
 
-    $sysPartition = New-Partition -DiskNumber $disknumber -GptType '{c12a7328-f81f-11d2-ba4b-00a0c93ec93bc}' -Size $SysSize
+    $sysPartition = New-Partition -DiskNumber $disknumber -GptType '{c12a7328-f81f-11d2-ba4b-00a0c93ec93b}' -Size $SysSize
     
     $systemNumber = $sysPartition.PartitionNumber
   
